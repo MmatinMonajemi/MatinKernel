@@ -14,3 +14,18 @@ void kernel_main() {
 
     while (1); // توقف کرنل
 }
+#include "screen.h"
+#include "keyboard.h"
+
+void kernel_main() {
+    clear_screen();
+    print("Welcome to Matin Kernel!\n");
+    init_keyboard();
+
+    while (1) {
+        char c = get_char();
+        if (c) {
+            print_char(c, 1, 0, 0x0F); // نمایش کاراکتر در خط دوم
+        }
+    }
+}
